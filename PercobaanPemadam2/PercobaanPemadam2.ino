@@ -12,8 +12,8 @@ const char* auth = "QX9MEi97X5FBlmAJk18US94Mw_X-Izk_"; // kode blynk ganti sesua
 #define sensormq2 A0     /// Sensor pin a0
 #define sensorflame D3  /// sensor flame di pin d3
 #define indikator D2  /// Indikator speaker
-#define led D5        // led red di pin d5
- 
+#define ledred D5        // led red di pin d5
+#define ledyel D7        //led yellow di D7
 void setup() {
   
   Serial.begin(115200);
@@ -43,13 +43,13 @@ void setup() {
   /////Sensor MQ 2 /////////////////////////////////////////
   pinMode(sensormq2, INPUT);   /// sensor sebagai input
   pinMode(indikator, OUTPUT); ///indikator speaker sebagai output
-  pinMode(led, OUTPUT);
+  pinMode(ledyel, OUTPUT);
   /////////////////////////////////////////////////////////
 
   /////Sensor Flame /////////////////////////////////////////
   pinMode(sensorflame, INPUT);   /// sensor sebagai input
   pinMode(indikator, OUTPUT); ///indikator speaker sebagai output
-  pinMode(led, OUTPUT);
+  pinMode(ledred, OUTPUT);
   /////////////////////////////////////////////////////////connect wifi
 }
  
@@ -64,9 +64,9 @@ delay (500);
   {
     digitalWrite(indikator, HIGH);                    //Speaker On
     {
-      digitalWrite(led, HIGH);
+      digitalWrite(ledyel, HIGH);
       delay(500);
-      digitalWrite(led, LOW);
+      digitalWrite(ledyel, LOW);
       delay(500);
     }
     Blynk.notify("LAPOR Boss... ADA gas bocorrr ^_^");  //send notify blynk
@@ -75,7 +75,7 @@ delay (500);
   else
   {
     digitalWrite(indikator, LOW);            ///speaker off
-    digitalWrite(led, LOW);
+    digitalWrite(ledyel, LOW);
   }
 ///////////////////////////////////////////////////////////////////////////////
  
@@ -90,9 +90,9 @@ delay (1000);
   {
     digitalWrite(indikator, HIGH);                    //Speaker On
     {
-      digitalWrite(led, HIGH);
+      digitalWrite(ledred, HIGH);
       delay(500);
-      digitalWrite(led, LOW);
+      digitalWrite(ledred, LOW);
       delay(500);
     }
     Blynk.notify("LAPOR Boss... Ada API ^_^");  //send notify blynk
@@ -101,7 +101,7 @@ delay (1000);
   else
   {
     digitalWrite(indikator, LOW);            ///speaker off
-    digitalWrite(led, LOW);
+    digitalWrite(ledred, LOW);
   }
   ///////////////////////////////////////////////////////////////////////////
   Blynk.run();
