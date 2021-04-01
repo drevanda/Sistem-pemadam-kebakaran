@@ -62,7 +62,7 @@ Serial.print("Nilai analog sensor GAS: ");
 Serial.println(nilaimq2);
 delay (500);
   
-  if(nilaimq2>1000)                                  // sensor on
+  if(nilaimq2>1200)                                  // sensor on
   {
     digitalWrite(indikator, HIGH);                    //Speaker On
     {
