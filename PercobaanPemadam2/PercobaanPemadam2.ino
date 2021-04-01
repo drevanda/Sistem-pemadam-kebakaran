@@ -14,6 +14,8 @@ const char* auth = "QX9MEi97X5FBlmAJk18US94Mw_X-Izk_"; // kode blynk ganti sesua
 #define indikator D2  /// Indikator speaker
 #define ledred D5        // led red di pin d5
 #define ledyel D7        //led yellow di D7
+#define relay D8
+
 void setup() {
   
   Serial.begin(115200);
