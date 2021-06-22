@@ -96,6 +96,8 @@ delay (1000);
       delay(500);
       digitalWrite(ledred, LOW);
       delay(500);
+      digitalWrite(relay, HIGH);
+      delay(500);
     }
     Blynk.notify("LAPOR Boss... Ada API ^_^");  //send notify blynk
     Blynk.virtualWrite(V0, 255);
@@ -104,6 +106,7 @@ delay (1000);
   {
     digitalWrite(indikator, LOW);            ///speaker off
     digitalWrite(ledred, LOW);
+    digitalWrite(relay, LOW);
   }
   ///////////////////////////////////////////////////////////////////////////
   Blynk.run();
